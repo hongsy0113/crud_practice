@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Bookmark{% endblock %}
+{% block content %}
+
+{% for cate, marks in order_marks.items %}
+    <h3><a href="{% url 'bookmark:cate_detail' pk=cate.pk %}">{{ cate.name }}</a></h3>
+    <ul>
+        {% for m in marks %}
+            <li>
+                <a href="{{ m.url }}">{{ m.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endfor %}
+
+{% endblock %}
